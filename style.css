@@ -1,0 +1,52 @@
+*, *::before, *::after{
+   box-sizing: border-box;
+   font-weight: normal;
+    
+}
+body{
+    background-image: url('./images/calculator-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0%;
+    margin: 0%;
+}
+input{
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.calc {
+    display: grid  ;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows:minmax(120px, auto) repeat(5, 90px);
+}
+
+.calc > button{
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+
+}
+input{
+    grid-column: 1/-1;
+    display: flex;
+    align-content: flex-end;
+    box-sizing: content-box;
+}
+
+.helpers{
+    background-color: rgb(255, 165, 0, 0.9);
+}
+.helpers:hover{
+    background-color: rgb(255, 165, 0);
+}
+
+.operator{
+    background-color: rgb(127, 255, 212);
+}
+.operator:hover{
+    background-color: rgb(35, 223, 160);
+}

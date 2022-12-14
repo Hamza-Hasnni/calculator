@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>JS calculator</title>
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+    </header>
+    <main>
+      <section class="calculator-grid">
+        <div class="calc">
+          <input id="resualt" type="text" />
+          <button class="helpers" id="ac" onclick="ac()">AC</button>
+          <button class="helpers" onclick="del()">C</button>
+          <button class="helpers" id="negativ" onclick="negative()">-/+</button>
+          <button class="helpers" id="purcent" onclick="percent()">%</button>
+          <button class="" id="one" onclick="one()">1</button>
+          <button onclick="two()">2</button>
+          <button onclick="three()">3</button>
+          <button class="operator" id="plus" onclick="add()">+</button>
+          <button onclick="four()">4</button>
+          <button onclick="five()">5</button>
+          <button onclick="six()">6</button>
+          <button class="operator" onclick="multiplication()">*</button>
+          <button onclick="seven()">7</button>
+          <button onclick="eight()">8</button>
+          <button onclick="nine()">9</button>
+          <button class="operator" onclick="division()">/</button>
+
+          <button id="dot" onclick="dot()">.</button>
+          <button id="zero" onclick="zero()">0</button>
+          <button id="equal">=</button>
+          <button class="operator" onclick="subtraction()">-</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
