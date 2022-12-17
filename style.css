@@ -10,10 +10,15 @@ body{
     padding: 0%;
     margin: 0%;
 }
-input{
+#resualt{
     display: flex;
-    justify-content: center;
-    font-size: 4rem;
+    justify-content: flex-end;
+    font-size: 5rem;
+    background-color: rgb(247, 104, 52, 0.9);
+    border-radius: 5%;
+    color: rgb(252, 250, 250);
+    padding-top: 10px;
+    
 }
 
 .calc {
@@ -22,6 +27,10 @@ input{
     justify-content: center;
     grid-template-columns: repeat(4, 90px);
     grid-template-rows:minmax(120px, auto) repeat(5, 90px);
+    width: fit-content;
+    border: 3px solid black;
+    border-radius: 3%;
+    margin-left: 35%;
 }
 
 .calc > button{
@@ -30,11 +39,12 @@ input{
     outline: none;
 
 }
-input{
+#resualt{
     grid-column: 1/-1;
     display: flex;
     align-content: flex-end;
     box-sizing: content-box;
+
 }
 
 .helpers{

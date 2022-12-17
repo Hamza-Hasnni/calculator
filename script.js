@@ -1,334 +1,154 @@
 const input = document.getElementById('resualt')
 const equal = document.getElementById('equal')
+const buttonNumber = document.querySelectorAll('.number')
+const buttonOperator = document.querySelectorAll('.operator')
 let addClicked = false
 let divCliceked = false
 let multiClicked = false
 let subsClicked = false
-let firstOperation = null
+let equalClicked = false
 let secondOperation = null
-let first = null
-let second = null
+let firstInput = null
 let lastOperation = null
 
-const zero = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 0
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 0
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 0
-  }
-}
-const one = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 1
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 1
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 1
-  }
-}
-const two = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 2
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 2
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 2
-  }
-}
-const three = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 3
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 3
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 3
-  }
-}
-const four = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 4
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 4
-    addClicked = divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 4
-  }
-}
-const five = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 5
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 5
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 5
-  }
-}
-const six = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 6
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 6
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 6
-  }
-}
-const seven = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 7
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 7
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 7
-  }
-}
-const eight = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 8
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 8
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 8
-  }
-}
-const nine = () => {
-  if (input.value == 'error') {
-    ac()
-    input.value = input.value + 9
-  } else if (
-    addClicked == true ||
-    multiClicked == true ||
-    divCliceked == true ||
-    subsClicked == true
-  ) {
-    input.value = parseFloat(input.value) * +0 + 9
-    addClicked = false
-    divCliceked = false
-    multiClicked = false
-    subsClicked = false
-  } else {
-    input.value = input.value + 9
-  }
-}
+buttonNumber.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (input.innerText == 'error') {
+      ac()
+      input.innerText = input.innerText + button.textContent
+    } else if (input.innerText == '0') {
+      return
+    } else if (
+      addClicked == true ||
+      multiClicked == true ||
+      divCliceked == true ||
+      subsClicked == true ||
+      equalClicked == true
+    ) {
+      input.innerText =
+        parseFloat(input.innerText) * +0 + parseFloat(button.textContent)
+      addClicked = false
+      divCliceked = false
+      multiClicked = false
+      subsClicked = false
+      equalClicked = false
+    } else {
+      input.innerText = input.innerText + button.textContent
+    }
+  })
+})
+
 /********************* Operation ********************** */
-const add = () => {
-  if (first == null && second == null) {
-    first = input.value
-  } else if (first != null && second == null) {
-    second = parseFloat(first) + parseFloat(input.value)
-    first = second
-    input.value = second
-  } else if (first != null && second != null) {
-    second = parseFloat(first) + parseFloat(input.value)
-    first = second
-    input.value = second
+buttonOperator.forEach((button) => {
+  button.addEventListener('click', () => {
+    switch (button.textContent) {
+      case '+':
+        if (firstInput == null) {
+          firstInput = input.innerText
+        } else if (firstInput != null) {
+          input.innerText = lastOperationRes(lastOperation)
+        }
+        addClicked = true
+        lastOperation = '+'
+        break
+      case '-':
+        if (firstInput == null) {
+          firstInput = input.innerText
+        } else {
+          input.innerText = lastOperationRes(lastOperation)
+        }
+        subsClicked = true
+        lastOperation = '-'
+        break
+      case '*':
+        if (firstInput == null) {
+          firstInput = input.innerText
+        } else {
+          input.innerText = lastOperationRes(lastOperation)
+        }
+        multiClicked = true
+        lastOperation = '*'
+        break
+      case '/':
+        if (firstInput == null) {
+          firstInput = input.innerText
+        } else {
+          input.innerText = lastOperationRes(lastOperation)
+        }
+        divCliceked = true
+        lastOperation = '/'
+        break
+      default:
+        break
+    }
+  })
+})
+
+const lastOperationRes = (lastOperation) => {
+  if (lastOperation == '+' && firstInput != null) {
+    firstInput = parseFloat(firstInput) + parseFloat(input.innerText)
+  } else if (lastOperation == '-' && firstInput != null) {
+    firstInput = parseFloat(firstInput) - parseFloat(input.innerText)
+  } else if (lastOperation == '*' && firstInput != null) {
+    firstInput = parseFloat(firstInput) * parseFloat(input.innerText)
+  } else if (lastOperation == '/' && firstInput != null) {
+    firstInput = parseFloat(firstInput) / parseFloat(input.innerText)
+  } else {
+    return
   }
-  addClicked = true
-  lastOperation = '+'
-  console.log('first = ' + first)
-  console.log('second = ' + second)
-}
-const division = () => {
-  if (first == null && second == null) {
-    first = input.value
-  } else if (first != null && input.value == 0) {
-    input.value = 'error'
-  } else if (first != null && second == null) {
-    second = parseFloat(first) / parseFloat(input.value)
-    first = second
-    input.value = second
-  } else if (first != null && second != null) {
-    second = parseFloat(first) / parseFloat(input.value)
-    first = second
-    input.value = second
+  lastOperation = null
+  if (firstInput.toString().includes('.')) {
+    return firstInput.toFixed(4)
+  } else {
+    return firstInput
   }
-  divCliceked = true
-  lastOperation = '/'
-  console.log('first = ' + first)
-  console.log('second = ' + second)
-}
-const multiplication = () => {
-  if (first == null && second == null) {
-    first = input.value
-  } else if (first != null && second == null) {
-    second = parseFloat(first) * parseFloat(input.value)
-    first = second
-    input.value = second
-  } else if (first != null && second != null) {
-    second = parseFloat(first) * parseFloat(input.value)
-    first = second
-    input.value = second
-  }
-  multiClicked = true
-  lastOperation = '*'
-  console.log('first = ' + first)
-  console.log('second = ' + second)
-}
-const subtraction = () => {
-  if (first == null && second == null) {
-    first = input.value
-  } else if (first != null && second == null) {
-    second = parseFloat(first) - parseFloat(input.value)
-    first = second
-    input.value = second
-  } else if (first != null && second != null) {
-    second = parseFloat(first) - parseFloat(input.value)
-    first = second
-    input.value = second
-  }
-  subsClicked = true
-  lastOperation = '-'
-  console.log('first = ' + first)
-  console.log('second = ' + second)
 }
 
 /*******************Helpres****************** */
 const ac = () => {
-  input.value = null
-  first = null
+  input.innerText = null
+  lastOperation = null
+  firstInput = null
   second = null
   addClicked = false
   divCliceked = false
   multiClicked = false
   subsClicked = false
+  equalClicked = false
 }
 
 const dot = () => {
-  if (input.value.includes('.')) {
+  if (input.innerText.includes('.')) {
     return
-  } else if (input.value == null) {
-    input.value = '0.'
+  } else if (input.innerText == null) {
+    input.innerText = '0.'
   }
-  input.value = input.value + '.'
+  input.innerText = input.innerText + '.'
 }
 const negative = () => {
-  input.value = parseFloat(input.value) * -1
+  input.innerText = parseFloat(input.innerText) * -1
 }
 const del = () => {
-  if (input.value == null) {
+  if (input.innerText == null) {
     return
   } else {
-    input.value = input.value.toString().slice(0, -1)
+    input.innerText = input.innerText.toString().slice(0, -1)
   }
 }
 
 const percent = () => {
-  input.value = parseFloat(input.value) / 100
+  input.innerText = parseFloat(input.innerText) / 100
 }
 
-/**************************************** */
+/******************Click Resualt Button ********************** */
 
-const resualts = () => {
-  equal.addEventListener('click', function () {
-    if (lastOperation == null) {
-      return
-    } else if (second == null && lastOperation == '+') {
-      input.value = parseFloat(first) + parseFloat(input.value)
-    } else if (second != null && lastOperation == '+') {
-      input.value = parseFloat(second) + parseFloat(input.value)
-    } else if (second == null && lastOperation == '/') {
-      input.value = parseFloat(first) / parseFloat(input.value)
-    } else if (second != null && lastOperation == '/') {
-      input.value = parseFloat(second) / parseFloat(input.value)
-    } else if (
-      (first != null && second == null) ||
-      (input.value == 0 && lastOperation == '/')
-    ) {
-      input.value = 'error'
-    }
-    first = null
-    second = null
-    lastOperation = null
-  })
-}
-
-resualts()
+equal.addEventListener('click', () => {
+  if (input.innerText == null || equalClicked == true) {
+    return
+  } else {
+    input.innerText = lastOperationRes(lastOperation)
+  }
+  equalClicked = true
+  firstInput = null
+  lastOperation = null
+})
